@@ -1,3 +1,29 @@
 h1{
     color:red;
 }
+
+body {
+    background-color: black;
+    background-image: url('/static/images/titlescreen.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    width: auto;
+    height: auto;
+}
+
+.btn{
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    background: none;
+    margin: 10px;
+}
+
+.centered{
+    position: fixed;
+    top: 47%;
+    left: 50%;
+    transform: translate(-47%, -50%);
+    justify-content: center;
+    text-align: center;
+}
