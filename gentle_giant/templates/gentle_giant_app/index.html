@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Gentle Giant</title>
     <link rel="stylesheet" href='{%static "css/cssIndex.css" %}'>
 </head>
 <body>
@@ -16,13 +16,13 @@
     {% endcomment %}
     <div class="centered">
         <div>
-            <button class='btn'><img src="/static/images/start-button.png" alt="start button"></button>
+            <a class='btn'><img src="/static/images/start-button.png" alt="start button"></a>
         </div>
         <div>
-            <button class='btn'><img src="/static/images/how-to-play.png" alt="start button"></button>
+            <a class='btn' href="{% url 'howto' %}"><img src="/static/images/how-to-play.png" alt="howto"></a>
         </div>
         <div>
-            <button class='btn'><img src="/static/images/leaderboard.png" alt="start button"></button>
+            <a class='btn'><img src="/static/images/leaderboard.png" alt="leaderboard"></a>
         </div>
     </div>
     

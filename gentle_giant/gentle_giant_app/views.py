@@ -7,3 +7,6 @@ def index(request):
     #return HttpResponse ("Hello World")
     my_dict={'insert_me': 'From view.py'}
     return render(request,'gentle_giant_app/index.html', context= my_dict )
+
+def howto(request):
+    return render(request,'gentle_giant_app/howto.html')
