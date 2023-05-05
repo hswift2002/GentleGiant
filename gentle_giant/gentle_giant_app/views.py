@@ -1,8 +1,9 @@
 from django.shortcuts import render
 
 from django.http import HttpResponse
-
+from django.http import HttpResponseRedirect
 from gentle_giant_app.models import Scoreboard
+from .forms import ScoreForm
 # Create your views here.
 
 def index(request):
@@ -14,7 +15,18 @@ def howto(request):
     return render(request,'gentle_giant_app/howto.html')
 
 def game(request):
-    return render(request,'gentle_giant_app/game.html')
+    submitted = False
+    if request.method == "POST":
+        form=ScoreForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/gentle_giant_app/game?submitted=True')
+    else:
+        form=ScoreForm
+        if 'submitted' in request.GET:
+            submitted=True
+    
+    return render(request,'gentle_giant_app/game.html', {'form':form, 'submitted':submitted})
 
 def tables_view(request):
     scores = Scoreboard.objects.order_by('user_id')

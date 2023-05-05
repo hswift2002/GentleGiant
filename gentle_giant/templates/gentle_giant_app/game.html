@@ -104,10 +104,25 @@
             const gentleGiant = new GentleGiant("canvas", frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage);
     
             gentleGiant.start();
-            
-    
+
+
         </script>
     </div>
-    
+    <!-- input initials here to be submitted to leaderboard -->
+    <div>
+        {% if submitted %}
+            Click to view leaderboard
+            <a class='btn' href="{% url 'table' %}"><img src="/static/images/leaderboard.png" alt="leaderboard"></a>
+        {% else %}
+            <form action="" method="POST">
+                <fieldset>
+                    <legend>Initials</legend>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" value="Submit" class="btn btn-success">
+                </fieldset>
+            </form>
+        {% endif %}
+    </div>
 </body>
 </html>

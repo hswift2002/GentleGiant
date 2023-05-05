@@ -1,5 +1,12 @@
 body{
-    background-color: black;
+    background-color: gray;
+}
+.color{
+    border-width:3px; 
+    border-style:solid; 
+    border-color:#000000; 
+    padding: 1em;
+    background: whitesmoke;
 }
 .btn{
     display: block;
