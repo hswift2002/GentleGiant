@@ -8,15 +8,15 @@
     <title>Gentle Giant</title>
     <link rel="stylesheet" href='{%static "css/cssGame.css" %}'>
     <link rel="preload" href='{%static "css/fonts/RetroGaming.woff" %}' as="font" type="font/woff" crossorigin>
-    <script src="{% 'js/animator.js' %}"></script>
-    <script src="{% 'js/background.js' %}"></script>
-    <script src="{% 'js/castle.js' %}"></script>
-    <script src="{% 'js/collider.js' %}"></script>
-    <script src="{% 'js/gentleGiant.js' %}"></script>
-    <script src="{% 'js/movement.js' %}"></script>
-    <script src="{% 'js/player.js' %}"></script>
-    <script src="{% 'js/point2d.js' %}"></script>
-    <script src="{% 'js/spawner.js' %}"></script>
+    <script src="{% static '/js/animator.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/background.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/castle.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/collider.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/gentleGiant.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/movement.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/player.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/point2d.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/spanwer.js' %}" type="text/javascript"></script>   
 </head>
 <body>
     <canvas id="canvas" width="1000" height="600" class="centered border"></canvas>
@@ -32,22 +32,21 @@
             playSpeed: 2,
             showTime: 5,
             imageSources: [
-                "/static/images/walk_animation/tile000.png",
-                "/static/images/walk_animation/tile001.png",
-                "/static/images/walk_animation/tile002.png",
-                "/static/images/walk_animation/tile003.png",
-                "/static/images/walk_animation/tile004.png",
-                "/static/images/walk_animation/tile005.png",
-                "/static/images/walk_animation/tile006.png",
-                "/static/images/walk_animation/tile007.png"
+                "../../gentle_giant_app/static/images/walk_animation/tile000.png",
+                "../../gentle_giant_app/static/images/walk_animation/tile001.png",
+                "../../gentle_giant_app/static/images/walk_animation/tile002.png",
+                "../../gentle_giant_app/static/images/walk_animation/tile003.png",
+                "../../gentle_giant_app/static/images/walk_animation/tile004.png",
+                "../../gentle_giant_app/static/images/walk_animation/tile005.png",
+                "../../gentle_giant_app/static/images/walk_animation/tile006.png",
+                "../../gentle_giant_app/static/images/walk_animation/tile007.png"
             ]
         }
 
-        
 
-        castle1 = ["static/images/castle1.png"]
-        castle2 = ["static/images/castle2.png"]
-        castle3 = ["static/images/castle3.png"]
+        castle1 = ["../../gentle_giant_app/static/images/castle1.png"];
+        castle2 = ["../../gentle_giant_app/static/images/castle2.png"];
+        castle3 = ["../../gentle_giant_app/static/images/castle3.png"];
 
 
         const spawnerOptions = {
@@ -75,29 +74,29 @@
         const frameRate = 30;
         const groundOffset = 20;
         const backgroundImage = [
-            "static/images/background/background0.png",
-            "static/images/background/background1.png",
-            "static/images/background/background2.png",
-            "static/images/background/background3.png",
-            "static/images/background/background4.png",
-            "static/images/background/background5.png",
-            "static/images/background/background6.png",
-            "static/images/background/background7.png",
-            "static/images/background/background8.png",
-            "static/images/background/background9.png",
-            "static/images/background/background10.png",
-            "static/images/background/background11.png",
-            "static/images/background/background12.png",
-            "static/images/background/background13.png",
-            "static/images/background/background14.png",
-            "static/images/background/background15.png",
-            "static/images/background/background16.png",
-            "static/images/background/background17.png",
-            "static/images/background/background18.png",
-            "static/images/background/background19.png",
-            "static/images/background/background20.png",
-            "static/images/background/background21.png"
-        ]
+            "../../gentle_giant_app/static/images/background/background0.png",
+            "../../gentle_giant_app/static/images/background/background1.png",
+            "../../gentle_giant_app/static/images/background/background2.png",
+            "../../gentle_giant_app/static/images/background/background3.png",
+            "../../gentle_giant_app/static/images/background/background4.png",
+            "../../gentle_giant_app/static/images/background/background5.png",
+            "../../gentle_giant_app/static/images/background/background6.png",
+            "../../gentle_giant_app/static/images/background/background7.png",
+            "../../gentle_giant_app/static/images/background/background8.png",
+            "../../gentle_giant_app/static/images/background/background9.png",
+            "../../gentle_giant_app/static/images/background/background10.png",
+            "../../gentle_giant_app/static/images/background/background11.png",
+            "../../gentle_giant_app/static/images/background/background12.png",
+            "../../gentle_giant_app/static/images/background/background13.png",
+            "../../gentle_giant_app/static/images/background/background14.png",
+            "../../gentle_giant_app/static/images/background/background15.png",
+            "../../gentle_giant_app/static/images/background/background16.png",
+            "../../gentle_giant_app/static/images/background/background17.png",
+            "../../gentle_giant_app/static/images/background/background18.png",
+            "../../gentle_giant_app/static/images/background/background19.png",
+            "../../gentle_giant_app/static/images/background/background20.png",
+            "../../gentle_giant_app/static/images/background/background21.png"
+        ];
         const gentleGiant = new GentleGiant("canvas", frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage);
 
         gentleGiant.start();
