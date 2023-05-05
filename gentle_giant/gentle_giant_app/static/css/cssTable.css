@@ -1,0 +1,56 @@
+body {
+    background-color: black;
+    background-image: url('/static/images/titlescreen.png');
+    background-repeat: no-repeat;
+    background-position-x: center;
+    width: auto;
+    height: auto;
+}
+p{
+    font-family: 'Retro Gaming';
+    src: url('fonts/RetroGaming.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    text-align: center;
+    justify-content: center;
+
+
+}
+
+
+h3 {
+    font-family: 'Retro Gaming';
+    src: url('fonts/RetroGaming.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.centered{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    justify-content: center;
+    text-align: center;
+}
+.border{
+    border-width:3px; 
+    border-style:solid; 
+    border-color:#000000; 
+    padding: 1em;
+    background: whitesmoke;
+}
+
+#containerIntro h3,
+#containerIntro p {
+    display: inline;
+    vertical-align: top;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 28px;
+}
