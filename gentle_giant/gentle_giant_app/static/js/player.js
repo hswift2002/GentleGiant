@@ -1,17 +1,15 @@
 class Player {
-    constructor(position, animator, movement, collider, jumpSound) {
+    constructor(position, animator, movement, collider) {
         this.position = position;
         this.animator = animator;
         this.movement = movement;
         this.collider = collider;
-        this.jumpSound = jumpSound;
     }
 
     // A method that update the player's movement and animation.
     update() {
         this.movement.update();
         if (this.movement.isGrounded())
-            this.jumpSound.play();
             this.animator.update();
     }
 
@@ -30,8 +28,10 @@ class Player {
 
     // A method that starts the jumping behaviour.
     jump() {
+        var jumpSound = new Audio("/static/images/jump_sound.mp3");
         if (this.movement.isGrounded()) {
             this.movement.jump();
+            jumpSound.play();
             this.animator.reset();
         }
     }
@@ -49,7 +49,7 @@ class Player {
         const collider = new Collider(position, options.width, options.height);
         const animator = Animator.create(options.playSpeed, options.showTime, options.imageSources);
         const movement = new Movement(position, groundY, options.height, options.jumpPower, options.jumpHeight, options.gravity);
-        const jumpSound = new Audio(options.jumpSound);
-        return new Player(position, animator, movement, collider, jumpSound);
+        // const jumpSound = new Audio(options.jumpSound);
+        return new Player(position, animator, movement, collider);
     }
 }

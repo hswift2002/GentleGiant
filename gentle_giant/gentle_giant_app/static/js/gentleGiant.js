@@ -1,7 +1,7 @@
 
 class GentleGiant {
 
-    constructor(id, frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage, gameMusic) {
+    constructor(id, frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage) {
         this.canvas = document.getElementById(id);
         this.ctx = this.canvas.getContext("2d");
         this.frameRate = frameRate;
@@ -10,15 +10,13 @@ class GentleGiant {
         this.spawnerOptions = spawnerOptions;
         this.difficulty = difficulty;
         this.backgroundImage = backgroundImage;
-        this.gameMusic = gameMusic;
         this.initialize();
     }
 
-    music = new Audio(this.gameMusic);
+    
+    
     // A method used to initialize the game.
     initialize() {
-        
-        this.music.play();
 
         this.background = Background.create(this.canvas.width, this.canvas.height, this.backgroundImage);
         this.player = Player.create(playerOptions, this.groundY);
@@ -64,7 +62,6 @@ class GentleGiant {
         if (this.gameOver) {
             // Draw game over elements.
             this.drawGameOver();
-            this.music.pause();
 
             // otherwise, execute game behaviour.
         } else {
