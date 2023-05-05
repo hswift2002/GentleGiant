@@ -22,6 +22,20 @@
     <div>
         <a class='btn' onclick="history.go(-1)"><img src="/static/images/menu.png" alt="menu"></a>
     </div>
+
+    <iframe src="/static/game/images/game_music.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+    <audio autoplay loop id="playAudio">
+        <source src="/static/images/game_music.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        if (!isChrome){
+            $('#iframeAudio').remove()
+        } else {
+            $('playAudio').remove()
+        }
+    </script>
+
     <div class="centered">
         <canvas id="canvas" width="1000" height="600" class="centered border"></canvas>
         <script>
@@ -77,6 +91,7 @@
     
             const frameRate = 30;
             const groundOffset = 20;
+            const gameMusic = "/static/images/game_music.mp3";
             const backgroundImage = [
                 "/static/images/background/background0.png",
                 "/static/images/background/background1.png",

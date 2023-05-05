@@ -1,0 +1,16 @@
+.centered{
+    position: fixed;
+    top:47%;
+    left:50%;
+    transform: translate(-47%, -50%);
+    justify-content: center;
+    text-align: center;
+}
+
+.border{
+    border-width: 3px;
+    border-style: solid;
+    border-color: #000000;
+    padding: 1em;
+    background: whitesmoke;
+}

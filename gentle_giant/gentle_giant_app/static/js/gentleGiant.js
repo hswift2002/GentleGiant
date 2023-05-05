@@ -14,9 +14,10 @@ class GentleGiant {
     }
 
     
-
+    
     // A method used to initialize the game.
     initialize() {
+
         this.background = Background.create(this.canvas.width, this.canvas.height, this.backgroundImage);
         this.player = Player.create(playerOptions, this.groundY);
         this.spawner = Spawner.create(spawnerOptions, this.canvas.width, this.groundY);
