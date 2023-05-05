@@ -1,15 +1,17 @@
 class Player {
-    constructor(position, animator, movement, collider) {
+    constructor(position, animator, movement, collider, jumpSound) {
         this.position = position;
         this.animator = animator;
         this.movement = movement;
         this.collider = collider;
+        this.jumpSound = jumpSound;
     }
 
     // A method that update the player's movement and animation.
     update() {
         this.movement.update();
         if (this.movement.isGrounded())
+            this.jumpSound.play();
             this.animator.update();
     }
 
@@ -47,6 +49,7 @@ class Player {
         const collider = new Collider(position, options.width, options.height);
         const animator = Animator.create(options.playSpeed, options.showTime, options.imageSources);
         const movement = new Movement(position, groundY, options.height, options.jumpPower, options.jumpHeight, options.gravity);
-        return new Player(position, animator, movement, collider);
+        const jumpSound = new Audio(options.jumpSound);
+        return new Player(position, animator, movement, collider, jumpSound);
     }
 }

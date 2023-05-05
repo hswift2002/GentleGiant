@@ -31,6 +31,7 @@
             gravity: 6,
             playSpeed: 2,
             showTime: 5,
+            jumpSound: '/static/images/sfx_jump_07-80241.mp3',
             imageSources: [
                 "/static/images/walk_animation/tile000.png",
                 "/static/images/walk_animation/tile001.png",
@@ -74,6 +75,7 @@
 
         const frameRate = 30;
         const groundOffset = 20;
+        const gameMusic = '/static/images/Austin_Game_Music(1).mp3'
         const backgroundImage = [
             "static/images/background/background0.png",
             "static/images/background/background1.png",
@@ -98,7 +100,7 @@
             "static/images/background/background20.png",
             "static/images/background/background21.png"
         ]
-        const gentleGiant = new GentleGiant("canvas", frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage);
+        const gentleGiant = new GentleGiant("canvas", frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage, gameMusic);
 
         gentleGiant.start();
         
