@@ -13,6 +13,9 @@ def index(request):
 def howto(request):
     return render(request,'gentle_giant_app/howto.html')
 
+def game(request):
+    return render(request,'gentle_giant_app/game.html')
+
 def tables_view(request):
     scores = Scoreboard.objects.order_by('user_id')
     scoreboard_dict={'scores': scores}

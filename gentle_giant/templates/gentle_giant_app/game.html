@@ -8,103 +8,106 @@
     <title>Gentle Giant</title>
     <link rel="stylesheet" href='{%static "css/cssGame.css" %}'>
     <link rel="preload" href='{%static "css/fonts/RetroGaming.woff" %}' as="font" type="font/woff" crossorigin>
-    <script src="{% 'js/animator.js' %}">
-    <script src="{% 'js/background.js' %}">
-    <script src="{% 'js/castle.js' %}">
-    <script src="{% 'js/collider.js' %}">
-    <script src="{% 'js/gentleGiant.js' %}">
-    <script src="{% 'js/movement.js' %}">
-    <script src="{% 'js/player.js' %}">
-    <script src="{% 'js/point2d.js' %}">
-    <script src="{% 'js/spawner.js' %}">
+    <script src="{% static '/js/animator.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/background.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/castle.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/collider.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/gentleGiant.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/movement.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/player.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/point2d.js' %}" type="text/javascript"></script>  
+    <script src="{% static '/js/spawner.js' %}" type="text/javascript"></script>   
 </head>
 <body>
-    <canvas id="canvas" width="1000" height="600" class="centered border"></canvas>
-    <script>
-
-        const playerOptions = {
-            width: 150,
-            height: 150,
-            startX: 0,
-            jumpPower: 27,
-            jumpHeight: 550,
-            gravity: 6,
-            playSpeed: 2,
-            showTime: 5,
-            jumpSound: '/static/images/sfx_jump_07-80241.mp3',
-            imageSources: [
-                "/static/images/walk_animation/tile000.png",
-                "/static/images/walk_animation/tile001.png",
-                "/static/images/walk_animation/tile002.png",
-                "/static/images/walk_animation/tile003.png",
-                "/static/images/walk_animation/tile004.png",
-                "/static/images/walk_animation/tile005.png",
-                "/static/images/walk_animation/tile006.png",
-                "/static/images/walk_animation/tile007.png"
-            ]
-        }
-
-        
-
-        castle1 = ["static/images/castle1.png"]
-        castle2 = ["static/images/castle2.png"]
-        castle3 = ["static/images/castle3.png"]
-
-
-        const spawnerOptions = {
-            width: 30,
-            height: 50,
-            minLength: 420,
-            maxlength: 500,
-            speed: 5,
-            maxActive: 2,
-            obstacles: [
-                Castle.create(-50, -20, 75, 105, castle1),
-                Castle.create(-50, -20, 150, 150, castle2),
-                Castle.create(-50, -20, 187, 200, castle3),
-                Castle.create(-100, -50, 75, 105, castle1),
-                Castle.create(-100, -50, 150, 150, castle2),
-                Castle.create(-100, -50, 187, 200, castle3),
-            ]
-        }
-
-        const difficulty = {
-            speedIncreasement: .01,
-            maxIncreasement: 5
-        }
-
-        const frameRate = 30;
-        const groundOffset = 20;
-        const gameMusic = '/static/images/Austin_Game_Music(1).mp3'
-        const backgroundImage = [
-            "static/images/background/background0.png",
-            "static/images/background/background1.png",
-            "static/images/background/background2.png",
-            "static/images/background/background3.png",
-            "static/images/background/background4.png",
-            "static/images/background/background5.png",
-            "static/images/background/background6.png",
-            "static/images/background/background7.png",
-            "static/images/background/background8.png",
-            "static/images/background/background9.png",
-            "static/images/background/background10.png",
-            "static/images/background/background11.png",
-            "static/images/background/background12.png",
-            "static/images/background/background13.png",
-            "static/images/background/background14.png",
-            "static/images/background/background15.png",
-            "static/images/background/background16.png",
-            "static/images/background/background17.png",
-            "static/images/background/background18.png",
-            "static/images/background/background19.png",
-            "static/images/background/background20.png",
-            "static/images/background/background21.png"
-        ]
-        const gentleGiant = new GentleGiant("canvas", frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage, gameMusic);
-
-        gentleGiant.start();
-        
-
-    </script>
+    <div>
+        <a class='btn' onclick="history.go(-1)"><img src="/static/images/menu.png" alt="menu"></a>
+    </div>
+    <div class="centered">
+        <canvas id="canvas" width="1000" height="600" class="centered border"></canvas>
+        <script>
+    
+            const playerOptions = {
+                width: 150,
+                height: 150,
+                startX: 0,
+                jumpPower: 27,
+                jumpHeight: 550,
+                gravity: 6,
+                playSpeed: 2,
+                showTime: 5,
+                imageSources: [
+                    "/static/images/walk_animation/tile000.png",
+                    "/static/images/walk_animation/tile001.png",
+                    "/static/images/walk_animation/tile002.png",
+                    "/static/images/walk_animation/tile003.png",
+                    "/static/images/walk_animation/tile004.png",
+                    "/static/images/walk_animation/tile005.png",
+                    "/static/images/walk_animation/tile006.png",
+                    "/static/images/walk_animation/tile007.png"
+                ]
+            }
+    
+    
+            castle1 = ["/static/images/castle1.png"];
+            castle2 = ["/static/images/castle2.png"];
+            castle3 = ["/static/images/castle3.png"];
+    
+    
+            const spawnerOptions = {
+                width: 30,
+                height: 50,
+                minLength: 420,
+                maxlength: 500,
+                speed: 5,
+                maxActive: 2,
+                obstacles: [
+                    Castle.create(-50, -20, 75, 105, castle1),
+                    Castle.create(-50, -20, 150, 150, castle2),
+                    Castle.create(-50, -20, 187, 200, castle3),
+                    Castle.create(-100, -50, 75, 105, castle1),
+                    Castle.create(-100, -50, 150, 150, castle2),
+                    Castle.create(-100, -50, 187, 200, castle3),
+                ]
+            }
+    
+            const difficulty = {
+                speedIncreasement: .01,
+                maxIncreasement: 5
+            }
+    
+            const frameRate = 30;
+            const groundOffset = 20;
+            const backgroundImage = [
+                "/static/images/background/background0.png",
+                "/static/images/background/background1.png",
+                "/static/images/background/background2.png",
+                "/static/images/background/background3.png",
+                "/static/images/background/background4.png",
+                "/static/images/background/background5.png",
+                "/static/images/background/background6.png",
+                "/static/images/background/background7.png",
+                "/static/images/background/background8.png",
+                "/static/images/background/background9.png",
+                "/static/images/background/background10.png",
+                "/static/images/background/background11.png",
+                "/static/images/background/background12.png",
+                "/static/images/background/background13.png",
+                "/static/images/background/background14.png",
+                "/static/images/background/background15.png",
+                "/static/images/background/background16.png",
+                "/static/images/background/background17.png",
+                "/static/images/background/background18.png",
+                "/static/images/background/background19.png",
+                "/static/images/background/background20.png",
+                "/static/images/background/background21.png"
+            ];
+            const gentleGiant = new GentleGiant("canvas", frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage);
+    
+            gentleGiant.start();
+            
+    
+        </script>
+    </div>
+    
 </body>
 </html>
