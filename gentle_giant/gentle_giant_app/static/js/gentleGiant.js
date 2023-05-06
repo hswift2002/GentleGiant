@@ -1,7 +1,7 @@
 
 class GentleGiant {
 
-    constructor(id, frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage) {
+    constructor(id, frameRate, groundOffset, playerOptions, spawnerOptions, difficulty, backgroundImage, leaderboardID) {
         this.canvas = document.getElementById(id);
         this.ctx = this.canvas.getContext("2d");
         this.frameRate = frameRate;
@@ -10,6 +10,7 @@ class GentleGiant {
         this.spawnerOptions = spawnerOptions;
         this.difficulty = difficulty;
         this.backgroundImage = backgroundImage;
+        this.leaderboard = document.getElementById(leaderboardID);
         this.initialize();
     }
 
@@ -17,7 +18,7 @@ class GentleGiant {
     
     // A method used to initialize the game.
     initialize() {
-
+        //this.leaderboard.style.display = "none";
         this.background = Background.create(this.canvas.width, this.canvas.height, this.backgroundImage);
         this.player = Player.create(playerOptions, this.groundY);
         this.spawner = Spawner.create(spawnerOptions, this.canvas.width, this.groundY);
@@ -35,12 +36,10 @@ class GentleGiant {
     // A method used to execute the game's keydown events.
     keydown(event) {
         if (event.code == 'Space') {
-            // If the game is ended,
-            // restart the game.
+            // If the game is ended, restart the game.
             if (this.gameOver)
                 this.initialize();
-            // otherwise, execute the 
-            // player's jump behaviour.
+            // otherwise, execute the player's jump behaviour.
             else
                 this.player.jump();
         }
@@ -95,13 +94,16 @@ class GentleGiant {
     // if the game ends.
     drawGameOver() {
         this.ctx.beginPath();
+        this.ctx.fillStyle = "white";
         this.ctx.fillText("GAMEOVER", this.canvas.width / 2, this.canvas.height / 2);
         this.ctx.closePath();
+        this.leaderboard.style.display = "block";
     }
 
     // A method used to draw the game's score.
     drawScore() {
         this.ctx.beginPath();
+        this.ctx.fillStyle = "white";
         this.ctx.fillText("score: " + this.score, 10, 20);
         this.ctx.closePath();
     }
@@ -109,6 +111,7 @@ class GentleGiant {
     // A method used to draw the scene's ground.
     drawGround() {
         this.ctx.beginPath();
+        this.ctx.fillStyle = "darkgreen";
         this.ctx.rect(0, this.groundY, this.canvas.width, 3);
         this.ctx.fill();
         this.ctx.closePath();

@@ -49,7 +49,6 @@ class Player {
         const collider = new Collider(position, options.width, options.height);
         const animator = Animator.create(options.playSpeed, options.showTime, options.imageSources);
         const movement = new Movement(position, groundY, options.height, options.jumpPower, options.jumpHeight, options.gravity);
-        // const jumpSound = new Audio(options.jumpSound);
         return new Player(position, animator, movement, collider);
     }
 }
